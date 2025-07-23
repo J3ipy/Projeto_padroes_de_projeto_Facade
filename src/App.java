@@ -1,13 +1,13 @@
-import com.cinetech.facade.EnhancedHomeTheaterFacade;
+import com.cinetech.facade.Facade;
 import com.cinetech.subsystem.components.*;
 import com.cinetech.utils.Logger;
 
-public class AdvancedHomeTheaterApp {
+public class App {
 
     public static void main(String[] args) {
         Logger.info("Iniciando a montagem do sistema de Home Theater...");
 
-        EnhancedHomeTheaterFacade homeTheater = new EnhancedHomeTheaterFacade.Builder()
+        Facade homeTheater = new Facade.Builder()
                 .withAudioPlayer(new DefaultAudioPlayer())
                 .withLights(new DefaultLights())
                 .withPopcornMachine(new DefaultPopcornMachine())

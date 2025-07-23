@@ -4,7 +4,7 @@ import com.cinetech.subsystem.components.*;
 import com.cinetech.subsystem.interfaces.*;
 import com.cinetech.utils.*;
 
-public class EnhancedHomeTheaterFacade {
+public class Facade {
 
     private final IAudioPlayer audioPlayer;
     private final ILights lights;
@@ -15,7 +15,7 @@ public class EnhancedHomeTheaterFacade {
     private final ITheatreScreen screen;
     private final IVideoPlayer videoPlayer;
 
-    private EnhancedHomeTheaterFacade(Builder builder) {
+    private Facade(Builder builder) {
         this.audioPlayer = builder.audioPlayer;
         this.lights = builder.lights;
         this.popcornMachine = builder.popcornMachine;
@@ -98,7 +98,7 @@ public class EnhancedHomeTheaterFacade {
         public Builder withScreen(ITheatreScreen screen) { this.screen = screen; return this; }
         public Builder withVideoPlayer(IVideoPlayer videoPlayer) { this.videoPlayer = videoPlayer; return this; }
 
-        public EnhancedHomeTheaterFacade build() {
+        public Facade build() {
             // Se algum componente não for injetado, usa uma implementação padrão.
             if (audioPlayer == null) audioPlayer = new DefaultAudioPlayer();
             if (lights == null) lights = new DefaultLights();
@@ -109,7 +109,7 @@ public class EnhancedHomeTheaterFacade {
             if (screen == null) screen = new DefaultTheatreScreen();
             if (videoPlayer == null) videoPlayer = new DefaultVideoPlayer();
             
-            return new EnhancedHomeTheaterFacade(this);
+            return new Facade(this);
         }
     }
 }
